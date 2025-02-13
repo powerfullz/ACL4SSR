@@ -22,7 +22,7 @@ allow-lan: true
 # #192.168.122.11: 绑定单个IPv4地址
 # #"[aaaa::a8aa:ff:fe09:57d8]": 绑定单个IPv6地址
 bind-address: "*"
-ipv6: true
+ipv6: false
 
 # 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）/ script (脚本)
 # mode: rule
@@ -33,23 +33,6 @@ log-level: info
 
 # Clash 的 RESTful API
 external-controller: '127.0.0.1:9090'
-
-# 您可以将静态网页资源（如 clash-dashboard）放置在一个目录中，clash 将会服务于 `RESTful API/ui`
-# 参数应填写配置目录的相对路径或绝对路径。
-# http://127.0.0.1:9090/ui/#/
-# external-ui: folder
-# yacd面板：  https://github.com/haishanh/yacd
-# Razord面板：http://clash.razord.top/#/proxies
-# external-ui: dashboard
-
-
-
-# 实验性功能 hosts, 支持通配符 (例如 *.clash.dev 甚至 *.foo.*.example.com)
-# 静态的域名 比 通配域名 具有更高的优先级 (foo.example.com 优先于 *.example.com)
-# 注意: hosts 在 fake-ip 模式下不生效
-#hosts:
-#   '*.clash.dev': 127.0.0.1
-#   'alpha.clash.dev': '::1'
 
 dns:
   enable: true
@@ -93,3 +76,8 @@ dns:
 #   DoH: 以 https:// 开头的 DNS 服务器。拥有更好的伪装性，且几乎不可能被运营商或网络管理封锁，但查询效率和安全性可能略低。
 #   DoT: 以 tls:// 开头的 DNS 服务器。拥有更高的安全性和查询效率，但端口有可能被管制或封锁。
 #   若要了解更多关于 DoH/DoT 相关技术，请自行查阅规范文档。
+
+geodata-mode: true
+geox-url:
+  geoip: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
+  geosite: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
